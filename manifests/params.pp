@@ -20,7 +20,11 @@
 class apache::params {
   # This will be 5 or 6 on RedHat, 6 or wheezy on Debian, 12 or quantal on Ubuntu, etc.
   $osr_array = split($::operatingsystemrelease,'[\/\.]')
-  $distrelease = $osr_array[0]
+  $distrelease = $::operatingsystem ? {
+    default  => $osr_array[0],
+    'Amazon' => '6' # facter 1.6.15 will return a date string on amazon for distrelease
+  }
+
   if ! $distrelease {
     fail("Class['apache::params']: Unparsable \$::operatingsystemrelease: ${::operatingsystemrelease}")
   }
