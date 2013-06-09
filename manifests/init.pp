@@ -92,6 +92,11 @@ class apache (
     require => Package['httpd'],
   }
 
+  file { $apache::passwords_dir:
+    ensure  => directory,
+    require => Package['httpd'],
+  }
+
   if ! defined(File[$apache::mod_dir]) {
     file { $apache::mod_dir:
       ensure  => directory,

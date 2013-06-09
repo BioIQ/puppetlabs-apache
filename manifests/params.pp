@@ -41,6 +41,7 @@ class apache::params {
     $vhost_dir            = "${httpd_dir}/conf.d"
     $conf_file            = 'httpd.conf'
     $ports_file           = "${conf_dir}/ports.conf"
+    $passwords_dir        = "${httpd_dir}/passwd"
     $logroot              = '/var/log/httpd'
     $lib_path             = 'modules'
     $mpm_module           = 'prefork'
@@ -84,6 +85,7 @@ class apache::params {
     $vhost_dir        = "${httpd_dir}/sites-enabled"
     $conf_file        = 'apache2.conf'
     $ports_file       = "${conf_dir}/ports.conf"
+    $passwords_dir    = "${httpd_dir}/passwd"
     $logroot          = '/var/log/apache2'
     $lib_path         = '/usr/lib/apache2/modules'
     $mpm_module       = 'worker'
