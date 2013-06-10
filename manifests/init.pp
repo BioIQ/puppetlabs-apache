@@ -148,7 +148,7 @@ class apache (
         $scriptalias          = '/usr/lib/cgi-bin'
         $access_log_file      = 'access.log'
       }
-      'redhat': {
+      'redhat','linux': {
         $docroot              = '/var/www/html'
         $pidfile              = 'run/httpd.pid'
         $error_log            = 'error_log'
